@@ -1,0 +1,52 @@
+﻿@model MorningSCart.Models.CartViewModel;
+@using System.Globalization;
+@inject IHttpContextAccessor abc;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="p-4 p-md-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-5">
+            <div class="card rounded-3">
+                <div class="card-body p-4">
+                    <div class="text-center mb-4">
+                        <h1 style="color: #ffc107 !important">Payment</h1>
+                    </div>
+                    <form asp-controller="Payment" asp-action="Payment" method="post">
+                        <ul class="list-unstyled">
+                            <li class="h3"><b>Name: </b> @abc.HttpContext.Session.GetString("f")  @abc.HttpContext.Session.GetString("l") </li>
+                            <br>
+                            <li class="h3"><b>Email: </b>  @abc.HttpContext.Session.GetString("u")</li>
+                            <br>
+                            <li class="h3"><b>Total Amount: @Model.GrandTotal.ToString("C", new CultureInfo("en-US"))</b> </li>
+                            <br>
+                        </ul>
+
+                        <div class="form-outline mb-4">
+                            <input type="text" id="cardholderName" name="cardholderName" class="form-control form-control-lg" placeholder="Cardholder's Name" />
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-7">
+                                <div class="form-outline">
+                                    <input type="text" id="CreditCard" name="CreditCard" class="form-control form-control-lg" placeholder="Card Number" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-outline">
+                                <textarea class="form-control form-control-lg" id="address" name="address" placeholder="Address" rows="2"></textarea>
+                            </div>
+                        </div>
+                        <br>
+
+                        <button class="btn btn-warning btn-lg btn-block" type="submit">Checkout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

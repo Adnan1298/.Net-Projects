@@ -1,0 +1,14 @@
+﻿@using MorningSCart.Models
+@model IEnumerable<Category>
+<h2>Search Categories</h2>
+<ul class="list-group">
+    <li class="list-group-item">
+        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">All Products</a>
+    </li>
+    @foreach(var item in  Model)
+    {
+        <li class="list-group-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-route-CategorySlug="@item.slug" asp-action="Index">@item.CName</a>
+        </li>
+    }
+</ul>

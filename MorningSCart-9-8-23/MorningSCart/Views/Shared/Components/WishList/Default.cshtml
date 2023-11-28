@@ -1,0 +1,18 @@
+﻿@using MorningSCart.Models
+@model WishListViewModel
+
+@if (Model != null)
+{
+    <p>Items in cart: <span class="badge badge-primary">@Model.NumberOfItems</span></p>
+    <p>Total: <b>@Model.TotalAmount.ToString("C2")</b></p>
+
+    <a class="btn btn-primary" asp-controller="WishList" asp-action="Index">View WishList</a>
+    <a class="btn btn-danger" asp-controller="WishList" asp-action="Clear">Clear Cart</a>
+}
+else
+{
+    <p class="lead m-0">Your WishList is empty</p>
+}
+
+
+

@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    //Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = null;
+}
+
+@model List<OrderViewModel>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Joined Data View</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>                
+                <th>Order ID</th>
+                <th>Customer Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Order Date</th>
+                <th>Credit Card No</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Quantity</th>
+                <th>Total Amount</th>              
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.OrderId</td>
+                    <td>@item.Username</td>
+                    <td>@item.Email</td>
+                    <td>@item.Address</td>
+                    <td>@item.OrderDate </td>
+                    <td>@item.CreditCardNo</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.ProductPrice</td>
+                    <td>@item.Qty</td>
+                    <td>@item.TotalAmount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
+
+
