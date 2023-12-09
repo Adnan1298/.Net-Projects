@@ -1,0 +1,125 @@
+﻿@model IEnumerable<ShoppingCart.Data.OrderViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<main class="main">
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a asp-controller="Products" asp-action="Index" rel="nofollow">Home</a>
+                <span></span>Product
+                <span></span> Index
+            </div>
+        </div>
+    </div>
+    <section class="mt-50 mb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table shopping-summery text-center">
+                            <thead>
+                                <tr class="main-heading">
+                                    @* <th scope="col" colspan="2">Product</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Stock Status</th>
+                                    <th scope="col">Action</th>
+                                    <th scope="col">Remove</th> *@
+                                    <th scope="col">
+                                        @Html.DisplayNameFor(model => model.OrderId)
+                                    </th>
+                                    <th scope="col">
+                                        @Html.DisplayNameFor(model => model.Email)
+                                    </th>
+                                    <th scope="col">
+                                        @Html.DisplayNameFor(model => model.Address)
+                                    </th>
+                                     <th scope="col">
+                                        @Html.DisplayNameFor(model => model.OrderDate)
+                                    </th>
+                                    <th scope="col">
+                                        @Html.DisplayNameFor(model => model.Cardholdername)
+                                    </th>
+                                    <th scope="col">
+                                        @Html.DisplayNameFor(model => model.CreditCardNo)
+                                    </th>
+                                    <th scope="col">
+                                        @Html.DisplayNameFor(model => model.ProductName)
+                                    </th>
+                                    <th scope="col">
+                                        @Html.DisplayNameFor(model => model.ProductPrice)
+                                    </th>
+                                    <th scope="col">
+                                        @Html.DisplayNameFor(model => model.Qty)
+                                    </th>
+                                    <th scope="col">
+                                        @Html.DisplayNameFor(model => model.TotalAmount)
+                                    </th>
+                                    <th>
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model) {
+                                <tr>
+                                        <td class="product-des product-name">
+                                            @Html.DisplayFor(modelItem => item.OrderId)
+                                        </td>
+                                        <td class="product-name" data-title="Discription">
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+                                        <td data-title="LDiscription">
+                                            @Html.DisplayFor(modelItem => item.Address)
+                                        </td>
+                                        <td class="price" data-title="Price">
+                                            @Html.DisplayFor(modelItem => item.OrderDate)
+                                        </td>
+                                        <td data-title="Brand">
+                                            @Html.DisplayFor(modelItem => item.Cardholdername)
+                                        </td>
+                                        <td data-title="Slug">
+                                            @Html.DisplayFor(modelItem => item.CreditCardNo)
+                                        </td>
+                                        <td data-title="Name">
+                                            @Html.DisplayFor(modelItem => item.ProductName)
+                                        </td>
+                                        <td data-title="Name">
+                                            @Html.DisplayFor(modelItem => item.ProductPrice)
+                                        </td>
+                                        <td data-title="Name">
+                                            @Html.DisplayFor(modelItem => item.Qty)
+                                        </td>
+                                        <td data-title="Name">
+                                            @Html.DisplayFor(modelItem => item.TotalAmount)
+                                        </td>
+                                        <td class="action" data-title="Remove"><a asp-action="Deletes" asp-route-id="@item.OrderId"><i class="fi-rs-trash"></i></a></td>
+
+                                    @* <td class="image product-thumbnail"><img src="assets/imgs/shop/product-1-1.jpg" alt="#"></td>
+                                    <td class="product-des product-name">
+                                        <h5 class="product-name"><a href="shop-product-right.html">J.Crew Mercantile Women's Short-Sleeve</a></h5>
+                                        <p class="font-xs">
+                                            Maboriosam in a tonto nesciung eget<br> distingy magndapibus.
+                                        </p>
+                                    </td>
+                                    <td class="price" data-title="Price"><span>$65.00 </span></td>
+                                    <td class="text-center" data-title="Stock">
+                                        <span class="color3 font-weight-bold">In Stock</span>
+                                    </td>
+                                    <td class="text-right" data-title="Cart">
+                                        <button class="btn btn-sm"><i class="fi-rs-shopping-bag mr-5"></i>Add to cart</button>
+                                    </td>
+                                    <td class="action" data-title="Remove"><a href="#"><i class="fi-rs-trash"></i></a></td> *@
+                                </tr>
+                                
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main

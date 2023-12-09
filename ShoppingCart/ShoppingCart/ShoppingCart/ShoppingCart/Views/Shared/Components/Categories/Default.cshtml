@@ -1,0 +1,60 @@
+﻿@using ShoppingCart.Data
+@model IEnumerable<Category>
+<!-- Filter -->
+@* <div class="dis-none panel-filter w-full p-t-10">
+	<div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
+		<div class="filter-col1 p-r-15 p-b-27">
+			<div class="mtext-102 cl2 p-b-15">
+				Sort By Category
+			</div>
+
+			<ul>
+				<li class="p-b-6">
+					<a asp-area="" asp-controller="Home" asp-action="Product" class="filter-link stext-106 trans-04">
+						All Products
+					</a>
+				</li>
+				@foreach(var item in Model)
+				{
+				<li class="p-b-6">
+					<a asp-area="" asp-controller="Home" asp-route-CategorySlug="@item.Slug" asp-action="Product" class="filter-link stext-106 trans-04">
+						@item.Name
+					</a>
+				</li>
+				}
+			</ul>
+		</div>
+	</div>
+</div> *@
+<div class="shop-product-fillter">
+    <div class="sort-by-product-area">
+        <div class="sort-by-cover">
+            <div class="sort-by-product-wrap">
+                <div class="sort-by">
+                    <span><i class="fi-rs-apps-sort"></i>Sort by:</span>
+                </div>
+                <div class="sort-by-dropdown-wrap">
+                    <span> Category <i class="fi-rs-angle-small-down"></i></span>
+                </div>
+            </div>
+            <div class="sort-by-dropdown">
+                <ul>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="Product" class="filter-link stext-106 trans-04">
+                            All Products
+                        </a>
+                    </li>
+                    @foreach (var item in Model)
+                    {
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-route-CategorySlug="@item.Slug" asp-action="Product">@item.Name</a>
+                        </li>
+                    }
+                    @*                     <li><a href="#">Price: High to Low</a></li>
+                    <li><a href="#">Release Date</a></li>
+                    <li><a href="#">Avg. Rating</a></li> *@
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

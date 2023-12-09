@@ -1,0 +1,79 @@
+﻿@model ShoppingCart.Data.CartViewModel;
+@using System.Globalization;
+@inject IHttpContextAccessor abc;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <!--Checkout page section-->
+<div class="Checkout_section  mt-100" id="accordion">
+    <div class="container">
+        <div class="checkout_form">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <form asp-controller="Payment" asp-action="Payment" method="post">
+                        <h3>Billing Details</h3>
+                        <div class="row">
+
+                            <div class="col-lg-6 mb-20">
+                                <label>First Name</label>
+                                <h3>@abc.HttpContext.Session.GetString("un") @abc.HttpContext.Session.GetString("f")</h3>
+                            </div>
+                            <div class="col-lg-6 mb-20">
+                                <label> Email Address</label>
+                                <h4>@abc.HttpContext.Session.GetString("u")</h4>
+                            </div>
+                            <div class="col-12 mb-20">
+                                <label>Card Holder Name</label>
+                                <input type="text" id="cardholderName" name="cardholderName" class="form-control form-control-lg" placeholder="Cardholder's Name" />
+                            </div>
+                            <div class="col-12 mb-20">
+                                <label>Card Number</label>
+                                <input type="text" id="CreditCard" name="CreditCard" class="form-control form-control-lg" placeholder="Card Number" />
+                            </div>
+                            <div class="col-12 mb-20">
+                                <label>Town / City <span>*</span></label>
+                                <textarea class="form-control form-control-lg" id="address" name="address" placeholder="Address" rows="2"></textarea>
+                            </div>
+                            <br>
+                            <li class="h3"><b>Total Amount: @Model.GrandTotal.ToString("C", new CultureInfo("en-US"))</b> </li>
+                            <br>
+                            <br>
+                            <button class="btn btn-warning btn-lg btn-block" type="submit">Checkout</button>
+                        </div>
+                    </form>
+                </div>
+                @* @foreach (var item in Model.CartItems)
+                {  
+                    <ul>
+                        <li>
+                            <input type="text" id="user_product_id" name="user_product_id" class="form-control form-control-lg" value="@item.pid"  />
+                           @*  <span >@item.pid</span> 
+                        </li>
+                    </ul>
+                } *@
+                @*          <div class="col-lg-6 col-md-6">
+                    <form action="#">
+                        <h3>Your order</h3>
+                        <div class="order_table table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Total Amount: @Model.GrandTotal.ToString("C", new CultureInfo("en-US"))</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+<!--Checkout page section end-->

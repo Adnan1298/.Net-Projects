@@ -1,0 +1,111 @@
+﻿@model IEnumerable<ShoppingCart.Data.Category>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@* <h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Slug)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Slug)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CategoryId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table> *@
+<main class="main">
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a asp-controller="Categories" asp-action="Index" rel="nofollow">Home</a>
+                <span></span> Category
+                <span></span> Index
+            </div>
+        </div>
+    </div>
+    <section class="mt-50 mb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p>
+                        <a asp-action="Create">Create New</a>
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table shopping-summery text-center">
+                            <thead>
+                                <tr class="main-heading">
+                                    <th scope="col">
+                                        @Html.DisplayNameFor(model => model.Name)
+                                    </th>
+                                    <th scope="col">
+                                        @Html.DisplayNameFor(model => model.Slug)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var item in Model) {
+                                <tr>
+                                        <td class="product-des product-name">
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Slug)
+                                        </td>
+                                        <td class="text-right">
+                                            <a asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a> |
+                                            <a asp-action="Details" asp-route-id="@item.CategoryId">Details</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
+                                        </td>
+                                    @* <td class="image product-thumbnail"><img src="assets/imgs/shop/product-1-1.jpg" alt="#"></td>
+                                    <td class="product-des product-name">
+                                        <h5 class="product-name"><a href="shop-product-right.html">J.Crew Mercantile Women's Short-Sleeve</a></h5>
+                                        <p class="font-xs">
+                                            Maboriosam in a tonto nesciung eget<br> distingy magndapibus.
+                                        </p>
+                                    </td>
+                                    <td class="price" data-title="Price"><span>$65.00 </span></td>
+                                    <td class="text-center" data-title="Stock">
+                                        <span class="color3 font-weight-bold">In Stock</span>
+                                    </td>
+                                    <td class="text-right" data-title="Cart">
+                                        <button class="btn btn-sm"><i class="fi-rs-shopping-bag mr-5"></i>Add to cart</button>
+                                    </td>
+                                    <td class="action" data-title="Remove"><a href="#"><i class="fi-rs-trash"></i></a></td> *@
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

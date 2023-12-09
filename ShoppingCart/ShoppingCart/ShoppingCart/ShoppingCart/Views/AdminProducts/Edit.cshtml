@@ -1,0 +1,91 @@
+﻿@model ShoppingCart.Data.Product
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<main class="main">
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a asp-controller="AdminProducts" asp-action="Index" rel="nofollow">Home</a>
+                <span></span> Product
+                <span></span> Edit
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 m-auto">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="login_wrap widget-taber-content p-30 background-white border-radius-5">
+                                <div class="padding_eight_all bg-white">
+                                    <div class="heading_s1">
+                                        <h3 class="mb-30">Product Edit</h3>
+                                    </div>
+                                    <form asp-action="Edit">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <input type="hidden" asp-for="ProductId" />
+                                        <div class="form-group">
+                                            <label asp-for="Name" class="control-label"></label>
+                                            <input asp-for="Name" class="form-control" />
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Description" class="control-label"></label>
+                                            <input asp-for="Description" class="form-control" />
+                                            <span asp-validation-for="Description" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="LDescription" class="control-label"></label>
+                                            <input asp-for="LDescription" class="form-control" />
+                                            <span asp-validation-for="LDescription" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Price" class="control-label"></label>
+                                            <input asp-for="Price" class="form-control" />
+                                            <span asp-validation-for="Price" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Brand" class="control-label"></label>
+                                            <input asp-for="Brand" class="form-control" />
+                                            <span asp-validation-for="Brand" class="text-danger"></span>
+                                        </div>
+                                        @* <div class="form-group">
+                                        <label asp-for="Image_Url" class="control-label"></label>
+                                        <input asp-for="Image_Url" class="form-control" />
+                                        <span asp-validation-for="Image_Url" class="text-danger"></span>
+                                        </div> *@
+                                        <div class="form-group">
+                                            <label asp-for="Slug" class="control-label"></label>
+                                            <input asp-for="Slug" class="form-control" />
+                                            <span asp-validation-for="Slug" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="CategoryId" class="control-label"></label>
+                                            <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                                            <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" value="Save" class="btn btn-danger">Edit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </section>
+</main>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,87 @@
+﻿@model ShoppingCart.Data.Product
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<main class="main">
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a asp-controller="Products" asp-action="Index" rel="nofollow">Home</a>
+                <span></span> Products
+                <span></span> Add Product
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 m-auto">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="login_wrap widget-taber-content p-30 background-white border-radius-5">
+                                <div class="padding_eight_all bg-white">
+                                    <div class="heading_s1">
+                                        <h3 class="mb-30">Add Product</h3>
+                                    </div>
+                                    <form method="post" asp-action="Create" enctype="multipart/form-data">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                                        <div class="form-group">
+                                            <label asp-for="Name" class="control-label"></label>
+                                            <input asp-for="Name" class="form-control" />
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Description" class="control-label"></label>
+                                            <input asp-for="Description" class="form-control" />
+                                            <span asp-validation-for="Description" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="LDescription" class="control-label"></label>
+                                            <input asp-for="LDescription" class="form-control" />
+                                            <span asp-validation-for="LDescription" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Price" class="control-label"></label>
+                                            <input asp-for="Price" class="form-control" />
+                                            <span asp-validation-for="Price" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Brand" class="control-label"></label>
+                                            <input asp-for="Brand" class="form-control" />
+                                            <span asp-validation-for="Brand" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Images</label>
+                                            <input type="file" name="img" class="form-control" />
+                                            @* <span asp-validation-for="Images" class="text-danger"></span> *@
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Slug" class="control-label"></label>
+                                            <input asp-for="Slug" class="form-control" />
+                                            <span asp-validation-for="Slug" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="CategoryId" class="control-label"></label>
+                                            <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                                        </div>
+                                        <input asp-for="UserId" type="hidden" value="@ViewBag.id" />
+                                        <div class="form-group">
+                                            <button type="submit" value="Create" class="btn btn-primary" >Create</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </section>
+</main>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

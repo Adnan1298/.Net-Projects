@@ -1,0 +1,74 @@
+﻿@model ShoppingCart.Data.Product
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<main class="main">
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a asp-controller="AdminProducts" asp-action="Index" rel="nofollow">Home</a>
+                <span></span>Product
+                <span></span> Delete
+            </div>
+        </div>
+    </div>
+    <section class="mt-50 mb-50">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LDescription)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LDescription)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Brand)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Brand)
+            </dd>
+            @* <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Image_Url)
+            </dt>
+            <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Image_Url)
+            </dd> *@
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Slug)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Slug)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Category)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+        </dl>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="ProductId" />
+            <button type="submit" value="Delete" class="btn btn-primary">Delete</button> |
+            <a asp-action="Index">Back to List</a>
+        </form>
+    </section>
+</main>
